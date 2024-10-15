@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Классификация отзывов</title>
+</head>
+<body>
+    <h1>Классификация отзывов к фильмам на английском языке</h1>
+    <h2>Этот сервис принимает отзыв на английском языке и возвращает сентимент-оценку отзыва (негативный или позитивный) и рейтинг фильма согласно отзыву.</h2>
+    <h2>Каждый отзыв получает процентную оценку негативности и позитивности, а также топ-3 рейтинга фильма на основании отзыва с процентами.</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Классифицировать</button>
+    </form>
+
+    {% if sentiment_scores %}
+        <h2>Сентимент</h2>
+        <ul>
+            {% for sentiment, score in sentiment_scores.items %}
+                <li>{{ sentiment|title }}: {{ score|floatformat:2 }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if top_ratings %}
+        <h2>Топ-3 рейтингов</h2>
+        <ul>
+            {% for rating in top_ratings %}
+                <li>Rating {{ rating.rating }} with score: {{ rating.score|floatformat:2 }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
