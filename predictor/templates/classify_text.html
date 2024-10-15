@@ -26,7 +26,7 @@
         <h2>Топ-3 рейтингов</h2>
         <ul>
             {% for rating in top_ratings %}
-                <li>Rating {{ rating.rating }} with score: {{ rating.score|floatformat:2 }}</li>
+                <li>Рейтинг {{ rating.rating }} с вероятностью: {{ rating.score|floatformat:2 }}</li>
             {% endfor %}
         </ul>
     {% endif %}
