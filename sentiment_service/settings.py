@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['web-production-7adee.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['https://web-production-64f1.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://web-production-7adee.up.railway.app']
      
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
